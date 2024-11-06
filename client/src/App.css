@@ -1,0 +1,10 @@
+.App {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  #messages {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #f9f9f9;
+  }
