@@ -17,6 +17,10 @@ const LoginFormComponent = () => {
             setUsername('');
             setPassword('');
             alert("Login success!");
+
+            // save username in localstorage (for now)
+            localStorage.setItem("user", username);
+
             window.location.href = '/chat';
         }else{
             alert("Something went wrong while login!");

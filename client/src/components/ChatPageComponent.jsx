@@ -15,7 +15,7 @@ const ChatPageComponent = () => {
 
     ws.current.onmessage = (event) => {
       const message = JSON.parse(event.data);
-      setMessages((prevMessages) => [...prevMessages, `Client ${message.id}: ${message.text}`]);
+      setMessages((prevMessages) => [...prevMessages, `${message.username}: ${message.text}`]);
     };
 
     ws.current.onclose = () => {
@@ -33,7 +33,8 @@ const ChatPageComponent = () => {
       return;
     }
 
-    const messageObj = { text: message };
+    const username = localStorage.getItem("user");
+    const messageObj = { text: message, username: username };
     ws.current.send(JSON.stringify(messageObj));
     setMessages((prevMessages) => [...prevMessages, `You: ${message}`]);
     setMessage('');
